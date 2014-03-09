@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="FinanceTrackerApp">
+    <head>
+
+        <title>
+            Finance Tracker
+        </title>
+
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="lib/Chart.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular.min.js"></script>
+        <script src="js/controllers.js"></script>
+
+    </head>
+
+    <body>
+        <div class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Finance Tracker</a>
+            </div>
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">My Finances</a></li>
+                    <li><a href="#">My Account</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <input class="form-control col-lg-8" placeholder="Search" type="text" ng-model="query">
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="absolute-wrapper">
+            <canvas id="renderer"></canvas>  
+        </div>
+        <div class="tracker-list" ng-controller="trackerListCtrl">
+            <H3>Tracking:</H3>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Name</th>
+                        <th>Entries</th>
+                        <th>Last Change</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="tracked in tracking | filter:query">
+                        <td>{{ $index+1 }}</td>
+                        <td>{{ tracked.name }}</td>
+                        <td>count the entries</td>
+                        <td>keep the last change updated</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
