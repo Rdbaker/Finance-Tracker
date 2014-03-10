@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Groceries",
+        "created": "9/2/14",
+        "id": "groceries"
+    },
+    {
+        "name": "Eating Out",
+        "created": "8/21/14",
+        "id": "eating-out"
+    },
+    {
+        "name": "Guitars",
+        "created": "8/28/13",
+        "id": "guitars"
+    }
+]

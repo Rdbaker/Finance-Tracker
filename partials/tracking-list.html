@@ -1,0 +1,26 @@
+<div class="tracker-list" ng-controller="trackingListCtrl">
+    <H3>Tracking:</H3>
+    <h6>View By: </h6>
+    <select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="created">Date Created</option>
+    </select>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Name</th>
+                <th>Entries</th>
+                <th>Last Change</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="tracked in tracking | filter:query | orderBy:orderProp">
+                <td>{{ $index+1 }}</td>
+                <td><a href="#/finances/{{tracked.id}}">{{ tracked.name }}</a></td>
+                <td>count the entries</td>
+                <td>keep the last change updated</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,12 +1,19 @@
-var FinanceTrackerApp = angular.module('FinanceTrackerApp', []);
+var FinanceTrackerControllers = angular.module('FinanceTrackerControllers', []);
 
-FinanceTrackerApp.controller('trackerListCtrl', function ($scope) {
-  $scope.tracking = [
-    {'name': 'Groceries',
-     'snippet': 'Fast just got faster with Nexus S.'},
-    {'name': 'Eating Out',
-     'snippet': 'The Next, Next Generation tablet.'},
-    {'name': 'Guitars',
-     'snippet': 'The Next, Next Generation tablet.'}
-  ];
-});
+FinanceTrackerControllers.controller('trackingListCtrl', ['$scope', '$http',
+    function($scope, $http) {
+        $http.get('tracking/tracking.json').success(function(data) {
+            $scope.tracking = data;
+        });
+
+        $scope.orderProp="created";
+    }
+]);
+
+FinanceTrackerControllers.controller('trackingDetailCtrl', ['$scope', '$routeParams', '$http',
+    function($scope, $routeParams, $http) {
+        $http.get('tracking/'+ $routeParams.trackId +'-detail.json').success(function(data) {
+            $scope.track = data;
+        });
+    }
+]);

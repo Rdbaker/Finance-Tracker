@@ -1,0 +1,17 @@
+<script href="js/render.js"></script>
+<h1>{{  track.name }}</h1>
+<canvas id="detailChart" width="600" height="480"></canvas>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>x</th>
+            <th>y</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="point in track.data">
+            <td>{{ point.x }}</td>
+            <td>{{ point.y }}</td>
+        </tr>
+    </tbody>
+</table>
