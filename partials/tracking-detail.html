@@ -1,14 +1,14 @@
-<script href="js/render.js"></script>
+<script src="js/render.js"></script>
 <h1>{{  track.name }}</h1>
-<canvas id="detailChart" width="600" height="480"></canvas>
-<table class="table table-striped table-hover">
+<div id="chartContainer" style="max-width: 1500px; max-height: 400px;"></div>
+<table id="data" class="table table-striped table-hover">
     <thead>
         <tr>
-            <th>x</th>
-            <th>y</th>
+            <th id="x">{{ track.x }}</th>
+            <th id="y">{{ track.y }}</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="points">
         <tr ng-repeat="point in track.data">
             <td>{{ point.x }}</td>
             <td>{{ point.y }}</td>

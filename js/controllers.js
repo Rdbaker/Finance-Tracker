@@ -10,10 +10,10 @@ FinanceTrackerControllers.controller('trackingListCtrl', ['$scope', '$http',
     }
 ]);
 
-FinanceTrackerControllers.controller('trackingDetailCtrl', ['$scope', '$routeParams', '$http',
+FinanceTrackerControllers.controller('trackingDetailCtrl', ['$scope', '$routeParams', '$http', 
     function($scope, $routeParams, $http) {
         $http.get('tracking/'+ $routeParams.trackId +'-detail.json').success(function(data) {
             $scope.track = data;
-        });
+        })
     }
 ]);

@@ -1,6 +1,8 @@
 {
     "name": "Groceries",
     "lastUpdate": "12/23/14",
+    "x" : "x",
+    "y" : "y",
     "data" : [
         { 
             "x" : "1", 
