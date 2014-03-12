@@ -14,8 +14,12 @@ FinanceTrackerApp.config(['$routeProvider',
                 templateUrl: 'partials/tracking-detail.html',
                 controller: 'trackingDetailCtrl'
             }).
+            when('/create', {
+                templateUrl: 'partials/create.html',
+                controller: 'createTrackerCtrl'
+            }).
             otherwise({
                 redirectTo: '/finances'
             });
-        }
+    }
 ]);

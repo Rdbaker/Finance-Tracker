@@ -17,3 +17,13 @@ FinanceTrackerControllers.controller('trackingDetailCtrl', ['$scope', '$routePar
         })
     }
 ]);
+
+FinanceTrackerControllers.controller('createTrackerCtrl', ['$scope', '$http',
+    function($scope, $http) {
+        $http.get('tracking/tracking.json').success(function(data) {
+            $scope.tracking = data;
+        });
+    }
+]);
+
+
