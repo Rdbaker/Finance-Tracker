@@ -3,7 +3,7 @@ var xlabel, ylabel;
 var cDataSource = [];
 var path = window.location.hash.split('/');
 
-$.getJSON("tracking/"+ path[path.length-1] +"-detail.json", function(data) {
+$.getJSON("tracking/db/"+ path[path.length-1] +"-detail.json", function(data) {
     xlabel = data["x"];
     ylabel = data["y"];
 
