@@ -1,0 +1,28 @@
+<form class="form-horizontal">
+    <fieldset>
+        <legend>Create A New Tracker</legend>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Tracker Name</label>
+            <div class="col-lg-10">
+                <input class="form-control"  type='text' placeholder="Tracker Name" name="tracker[name]">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">X Axis Label</label>
+            <div class="col-lg-10">
+                <input class="form-control" type="text" placeholder="x, time, months, etc." name="tracker[xlabel]">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Y Axis Label</label>
+            <div class="col-lg-10">
+                <input class="form-control" type="text" placeholder="Money Spent, Puppies Bought, Orphans Lost, etc." name="tracker[ylabel]">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+    </fieldset>
+</form>

@@ -1,0 +1,5 @@
+it's starting to look like to properly do this I'll need to have some sort of database and not just a file system if I plan on 
+putting this online at some point
+
+it seems that AngularJS only reaches as far as data that's been given to it. If I want data to be handled by a database, I'll need
+another way to handle it. Most likely Node with some small database like MongoDB or something small.
