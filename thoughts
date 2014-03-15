@@ -3,3 +3,6 @@ putting this online at some point
 
 it seems that AngularJS only reaches as far as data that's been given to it. If I want data to be handled by a database, I'll need
 another way to handle it. Most likely Node with some small database like MongoDB or something small.
+
+started wiring together a backend using Node, Express, Mongoose (MongoDB) and using modulus.io to host my database and application.
+use 'modulus deply' to send the app to modulus.io when ready to deploy
