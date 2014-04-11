@@ -6,7 +6,7 @@
     "author"       : "rdbaker",
     "dependencies" : {
         "express"    : "~3.4.4",
-        "mongoose"   : "~3.6.2"
+        "mysql"      : "~2.1.1",
     },
     "engines" : {
         "node" : "0.10.x"

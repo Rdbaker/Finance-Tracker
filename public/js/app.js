@@ -3,7 +3,7 @@ var FinanceTrackerApp = angular.module('FinanceTrackerApp', [
     'FinanceTrackerControllers'
 ]);
 
-FinanceTrackerApp.config(['$routeProvider',
+FinanceTrackerApp.config(['$routeProvider', '$locationProvider',
     function($routeProvider) {
         $routeProvider.
             when('/finances', {
@@ -22,4 +22,5 @@ FinanceTrackerApp.config(['$routeProvider',
                 redirectTo: '/finances'
             });
     }
+    $locationProvider.html5Mode(true);
 ]);

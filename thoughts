@@ -6,3 +6,7 @@ another way to handle it. Most likely Node with some small database like MongoDB
 
 started wiring together a backend using Node, Express, Mongoose (MongoDB) and using modulus.io to host my database and application.
 use 'modulus deply' to send the app to modulus.io when ready to deploy
+
+3/24
+I got rid of modulus and mongoose in favor of a file system stored on the server side. It may be slower, it may not be as practical, but it's free.
+And it's teaching me how to construct and use an API of my own for accessing a stored file system
