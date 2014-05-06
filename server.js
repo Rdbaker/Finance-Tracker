@@ -1,8 +1,15 @@
 // set up the app with proper reuirements
 var express = require('express');
+var mongoose = require('mongoose');
 var app = express();
 
 var port = process.env.PORT || 8081;
+
+mongoose.connect('mongodb://127.0.0.1:27017/test');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error'));
+
 
 app.configure(function() {
     app.use(express.static(__dirname + "/public")); // static files location
