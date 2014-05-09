@@ -7,8 +7,29 @@ var port = process.env.PORT || 8081;
 
 mongoose.connect('mongodb://127.0.0.1:27017/test');
 
+// database models and schema -----------------------------------------
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
+
+var trackingSchema = mongoose.Schema({
+	name : String,
+	created : { type : Date, default : Date.now }
+});
+
+var tracking = mongoose.model('tracking', trackingSchema);
+
+var trackerSchema = mongoose.Schema({
+	name : String,  // should also be the same as the 'tracking'
+	x    : String,  // the x axis name
+	y    : String,  // the y axis name
+	data : [{ x : [Number], y : [Number] }] // the data in the tracker to be graphed
+});
+
+var tracker = mongoose.model('tracker', trackerSchema);
+
+
+// configure the app -----------------------------------------------------------
 
 
 app.configure(function() {
@@ -20,16 +41,70 @@ app.configure(function() {
 });
 
 
-// routes ----------------------------
+// routes ---------------------------------------------------------------------
+
+// get all the tracking overviews
 app.get('/api/finances', function(req, res) {
-
+    tracking.find(function(err, data) {
+        if (err) {
+            res.send(err)
+        }
+        res.json(data)
+    });
 });
 
+// create a new tracking overview and a tracker detail
 app.post('/api/create', function(req, res) {
-    var date = new Date();
+    console.log(req.body);
+    console.log(req.body.name);
+    console.log(req.body.xlabel);
+    console.log(req.body.ylabel);
+    // create tracking overview
+    tracking.create({
+        name : req.body.name
+    }, function(err, newtracking) {
+        if (err)
+            res.send(err);
+        console.log(newtracking);
+        // create tracker detail
+        tracker.create({
+            name : req.body.name,
+            x    : req.body.xlabel,
+            y    : req.body.ylabel
+        }, function(err, newtracker){
+            if (err)
+                res.send(err);
+            console.log(newtracker);
+            res.send({
+                redirectTo : '/finances'
+            });
+        });
+    });
 });
 
+// delete a tracking overview and a tracker detail
 app.delete('/api/finances/:trackId', function(req, res) {
+    // remove the tracking overview
+    console.log("calling remove");
+    tracking.remove({
+        _id : req.params.trackId
+    }, function(err, del_tracking) {
+        console.log("inside callback");
+        if(err)
+            res.send(err);
+
+        // delete the tracker detail
+        tracker.remove({
+            name : del_tracking.name
+        }, function(err, del_tracker) {
+            console.log("inside callback 2");
+            if (err)
+                res.send(err);
+            res.send({
+                redirectTo : '/finances'
+            });
+        });
+    });
 });
 
 app.get('*', function(req, res) {

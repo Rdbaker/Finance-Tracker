@@ -5,24 +5,26 @@
         <option value="name">Alphabetical</option>
         <option value="created">Date Created</option>
     </select>
-    <a href="#/create"><button type="button" class="btn btn-success" style="margin-left:69.5%">New Tracker</button></a>
+    <a href="#/create"><button type="button" class="btn btn-success" 
+        style="margin-left:69.5%">New Tracker</button></a>
     <table class="table table-striped table-hover">
         <thead>
             <tr>
                 <th>Number</th>
                 <th>Name</th>
                 <th>Entries</th>
-                <th>Last Change</th>
+                <th>Date Created</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="tracked in tracking | filter:query | orderBy:orderProp">
                 <td>{{ $index+1 }}</td>
-                <td><a href="#/finances/{{tracked.id}}">{{ tracked.name }}</a></td>
+                <td><a href="#/finances/{{tracked._id}}">{{ tracked.name }}</a></td>
                 <td>count the entries</td>
                 <td>{{ tracked.created }}</td>
-                <td><button type="button" class="btn-sm btn-danger" style="font-size:11px;">Delete</button></td>
+                <td><button type="button" class="btn-sm btn-danger" style="font-size:11px;" 
+                    ng-click="delete(tracked._id)">Delete</button></td>
             </tr>
         </tbody>
     </table>

@@ -22,5 +22,4 @@ FinanceTrackerApp.config(['$routeProvider', '$locationProvider',
                 redirectTo: '/finances'
             });
     }
-    $locationProvider.html5Mode(true);
 ]);

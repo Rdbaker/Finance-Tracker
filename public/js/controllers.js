@@ -2,7 +2,22 @@ var FinanceTrackerControllers = angular.module('FinanceTrackerControllers', []);
 
 FinanceTrackerControllers.controller('trackingListCtrl', ['$scope', '$http',
     function($scope, $http) {
-        $http.get('tracking/tracking.json').success(function(data) {
+
+        $scope.delete = function(id) {
+            console.log(id);
+            $http.delete('/api/finances/' + id)
+                .success(function(res) {
+                    console.log("deleted");
+                    if(res.redirectTo) {
+                        window.location = res.redirectTo;
+                    }
+                })
+                .error(function(data) {
+                    console.log("Error: " + data);
+                });
+        }
+
+        $http.get('api/finances').success(function(data) {
             $scope.tracking = data;
         });
 
@@ -20,9 +35,17 @@ FinanceTrackerControllers.controller('trackingDetailCtrl', ['$scope', '$routePar
 
 FinanceTrackerControllers.controller('createTrackerCtrl', ['$scope', '$http',
     function($scope, $http) {
-        $http.get('tracking/tracking.json').success(function(data) {
-            $scope.tracking = data;
-        });
+        $scope.create = function(tracker) {
+            $http.post('api/create', tracker)
+                .success(function(res) {
+                    if(res.redirectTo) {
+                        window.location = res.redirectTo;
+                    }
+                })
+                .error(function(err) {
+                    console.log("Error: " + err);
+                });
+        }
     }
 ]);
 
