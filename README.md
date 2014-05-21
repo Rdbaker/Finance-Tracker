@@ -9,8 +9,11 @@ After downloading the source, install all the dependencies with:
 
 `npm install`
 
-After that runs successfully (you may need to sudo), you can run the server with:
+After that runs successfully (you may need to install Mongodb yourself), you can run the application by:
 
+1. first running the database with the command:
+`mongod`
+2. then running the application with:
 `node server.js`
 
 from the root of the directory. To visit the page, go to [http://localhost:8081](http://localhost:8081)
