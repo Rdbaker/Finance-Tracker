@@ -1,7 +1,29 @@
 <script src="js/render.js"></script>
-<h1>{{  track.name }}</h1>
+<h1>{{ track.name }}</h1>
 <div id="chartContainer" style="max-width: 1500px; max-height: 400px;"></div>
 <table id="data" class="table table-striped table-hover">
+    
+    <!-- TODO: make this form prettier -->
+    <form>
+        <fieldset>
+            <legend>New Data Point</legend>
+            <div style="float: left;">
+                <div class="input-group">
+                    <span class="input-group-addon">x</span>
+                    <input type="text" class="form-control"/>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">y</span>
+                    <input type="text" class="form-control"/>
+                </div>
+            </div>
+            <div style="float: left;">
+                <button type="submit" class="btn btn-primary" ng-click="TODO">Create</button>
+            </div>
+            <br style="clear: both;" />
+        </fieldset>
+    </form>
+
     <thead>
         <tr>
             <th id="x">{{ track.x }}</th>

@@ -4,10 +4,8 @@ FinanceTrackerControllers.controller('trackingListCtrl', ['$scope', '$http',
     function($scope, $http) {
 
         $scope.delete = function(id) {
-            console.log(id);
             $http.delete('/api/finances/' + id)
                 .success(function(res) {
-                    console.log("deleted");
                     if(res.redirectTo) {
                         window.location = res.redirectTo;
                     }
@@ -27,9 +25,19 @@ FinanceTrackerControllers.controller('trackingListCtrl', ['$scope', '$http',
 
 FinanceTrackerControllers.controller('trackingDetailCtrl', ['$scope', '$routeParams', '$http', 
     function($scope, $routeParams, $http) {
-        $http.get('tracking/db/'+ $routeParams.trackId +'-detail.json').success(function(data) {
-            $scope.track = data;
-        })
+
+        $scope.newPoint = function(x, y) {
+            $http.post
+            // TODO finish this method
+        }
+
+        $http.get('/api/finances/'+ $routeParams.trackId)
+            .success(function(data) {
+                $scope.track = data;
+            })
+            .error(function(err) {
+                console.log("Error: " + err);
+            });
     }
 ]);
 

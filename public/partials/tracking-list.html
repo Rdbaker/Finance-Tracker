@@ -21,7 +21,7 @@
             <tr ng-repeat="tracked in tracking | filter:query | orderBy:orderProp">
                 <td>{{ $index+1 }}</td>
                 <td><a href="#/finances/{{tracked._id}}">{{ tracked.name }}</a></td>
-                <td>count the entries</td>
+                <td>{{ tracked.entries }}</td>
                 <td>{{ tracked.created }}</td>
                 <td><button type="button" class="btn-sm btn-danger" style="font-size:11px;" 
                     ng-click="delete(tracked._id)">Delete</button></td>
